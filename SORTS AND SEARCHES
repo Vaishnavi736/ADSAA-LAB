@@ -40,6 +40,132 @@ class Bubble
            System.out.println("After sorting: ");
            display(a,size);
 }     
-}          
-           
+}         
+//SELECTION SORT
+import java.util.*;
+class Select
+{
+      static void swap(int arr[],int i,int j)
+      {
+             int temp=arr[i];
+             arr[i]=arr[j];
+             arr[j]=temp;
+      }
+      static void selection(int arr[],int n)
+      {
+          int i,j,minidx;
+          for(i=0;i<n-1;i++)
+          {
+                minidx=i;
+                for(j=i+1;j<n;j++)
+                {
+                    if(arr[j]<arr[minidx])
+                    {
+                         minidx=j;
+                    }
+                }
+                swap(arr,i,minidx);
+          }
+      }
+     static void display(int arr[],int n)
+     {
+          for(int i=0;i<n;i++)
+           {
+               System.out.println(arr[i]+"");
+           }
+     }      
+     public static void main(String[]args) 
+     {
+           Scanner sc=new Scanner(System.in);
+           System.out.println("Enter the size of array");
+           int size=sc.nextInt();
+           int a[]=new int[size];
+           System.out.println("Enter the array elements");
+           for(int i=0;i<size;i++)
+           {
+               a[i]=sc.nextInt();
+           }
+           selection(a,size);
+           System.out.println("After selection sort: ");
+           display(a,size);
+     }     
+}              
+//LINEAR SEARCH
+import java.util.*;
+class Linear
+{
+     static int lsearch(int arr[],int n,int key)
+     {
+          for(int i=0;i<n;i++)
+          {
+              if(key==arr[i])
+              {
+                 return i;
+              }
+          }    
+          return -1;
+     }
+     public static void main(String[]args) 
+     {
+           Scanner sc=new Scanner(System.in);
+           System.out.println("Enter the size of array");
+           int size=sc.nextInt();
+           int a[]=new int[size];
+           System.out.println("Enter the array elements");
+           for(int i=0;i<size;i++)
+           {
+               a[i]=sc.nextInt();
+           }
+           System.out.println("Enter the key");
+           int target=sc.nextInt();
+           int index=lsearch(a,size,target);
+           System.out.println("Key"+ target+" is found at "+index);
+     }     
+}   
+//BINARY SEARCH(CHECK)
+import java.util.*;
+class Binary
+{
+       static int bsearch(int arr[],int n,int key)
+       {
+           int min=0,max=n-1;
+           while(min<=max)
+           {
+                int mid=(min+max)/2;
+                if(key==arr[mid])
+                {
+                     return mid;
+                }
+                else if(key<arr[mid])
+                {
+                     max=mid-1;     
+                }
+                else
+                {
+                     min=mid+1;
+                }
+           }
+       }
+       public static void main(String[]args) 
+       {
+           Scanner sc=new Scanner(System.in);
+           System.out.println("Enter the size of array");
+           int size=sc.nextInt();
+           int a[]=new int[size];
+           System.out.println("Enter the array elements in ascending order ");
+           for(int i=0;i<size;i++)
+           {
+               a[i]=sc.nextInt();
+           }
+           System.out.println("Enter the key");
+           int target=sc.nextInt();
+           int index=bsearch(a,size,target);
+           System.out.println("Key"+ target+" is found at "+index);
+       }     
+}                            
+                          
+   
+
+
+                             
                                
