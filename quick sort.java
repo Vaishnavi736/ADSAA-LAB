@@ -40,7 +40,7 @@ public class QuickSort {
                     quickSort(arr,0,arr.length-1);
                     System.out.println("Sorted Array: ");
                     for(int num:arr) {
-                         System.out.println(num+" ");
+                         System.out.print(num+" ");
                     }
                     sc.close();
       }       
