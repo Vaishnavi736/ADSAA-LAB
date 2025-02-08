@@ -1,0 +1,27 @@
+import java.util.Arrays;
+class Job {
+      int id,int deadline,profit;
+      Job(int id,int deadline,int profit) {
+                    this.id=id;
+                    this.deadline=deadline;
+                    this.profit=profit;
+               }
+      }
+      public class JS {
+               public static void scheduleJobs(Job[] jobs) {
+                     int totalProfit=0;
+                     Array.sort(jobs,(a,b)->b.profit-a.profit);
+                     int n=jobs.length;
+                     boolean[] slots=new boolean[n];
+                     int[] result=new int[n];
+                     for(Job j=jobs) {
+                               for(int i=j.deadline-1;i>=0;i--) {
+                                   if(!slots[i]) {
+                                          slots[i]=true;
+                                          result[i]=j.id;
+                                          total profit+=j.profit;
+                                          break;
+                                   }
+                               }
+                     }
+                                                        
