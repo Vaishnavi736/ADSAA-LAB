@@ -1,0 +1,91 @@
+import java.util.Arrays;
+
+2 
+
+3 class Item {
+
+4 int weight, profit;
+
+5 double ratio;
+
+6 
+
+7 Item(int weight, int profit) {
+
+8 this.weight = weight;
+
+9 this.profit = profit;
+
+10 this.ratio = (double) profit / weight;
+
+11 }
+
+12 }
+
+13 
+
+14 public class GreedyFractionalKnapsack {
+
+15 public static double getMaxprofit(Item[] items, int m) {
+
+16 Arrays.sort(items, (a, b) -> Double.compare(b.ratio, a.ratio));
+
+17 double maxprofit = 0.0;
+
+18 System.out.println("Items placed in the bag:");
+
+19 
+
+20 for (Item item : items) {
+
+21 if (item.weight <= m) {
+
+22 maxprofit += item.profit;
+
+23 System.out.println("Item: (Weight: " + item.weight + ", profit: " + item
+
+.profit + ") - Taken Fully");
+
+24 m -= item.weight;
+
+25 } else {
+
+26 // Take fractional part
+
+27 double fraction = (double) m / item.weight;
+
+28 maxprofit += item.profit * fraction;
+
+29 System.out.println("Item: (Weight: " + item.weight*fraction + ", 
+
+profit: " + item.profit*fraction + ") - Taken " + fraction * 100 + "%");
+
+30 break;
+
+31 }
+
+32 }
+
+33 
+
+34 return maxprofit;
+
+35 }
+
+36 
+
+37 public static void main(String[] args) {
+
+38 Item[] items = { new Item(10, 60), new Item(20, 100), new Item(30, 120) };
+
+39 int m = 50;
+
+40 
+
+41 double maxprofit = getMaxprofit(items, m);
+
+42 System.out.println("Maximum profit in Knapsack: " + maxprofit);
+
+43 }
+
+44 }
